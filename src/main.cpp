@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 
     // Load the models
     SequenceDetailsModel sm;
-    PersonListModel pm(sm);
+    PersonListModel pm;
 
     // Read all results from the text file
     QFile resultFile("/home/etienne/__A__/Dev/Reidentification/Data/Debug/network_save.net");
@@ -52,8 +52,9 @@ int main(int argc, char *argv[])
     }
     QObject::connect(personListTableView, SIGNAL(personSelected(int)),
                      &pm, SLOT(plotDetails(int)));
-    //QObject::connect(pm, SIGNAL(personSelected(int)),
-    //                 &sm, SLOT(plotDetails(int)));
+
+    QObject::connect(&pm, SIGNAL(personSelected(const QStringList&)),
+                     &sm, SLOT(plotDetails(const QStringList&)));
 
     return app.exec();
 }

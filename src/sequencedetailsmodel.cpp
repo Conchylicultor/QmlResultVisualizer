@@ -105,7 +105,7 @@ QHash<int, QByteArray> SequenceDetailsModel::roleNames() const {
     return roles;
 }
 
-void SequenceDetailsModel::setData(const QStringList &newData)
+void SequenceDetailsModel::plotDetails(const QStringList &newData)
 {
     sequenceList.clear();
 

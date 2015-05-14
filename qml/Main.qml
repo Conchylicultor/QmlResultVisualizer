@@ -97,7 +97,9 @@ ApplicationWindow {
             Tab {
                 title: "General informations"
                 Text{
-                    text: "TODO ?"
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    text: "TODO ???"
                 }
             }
         }

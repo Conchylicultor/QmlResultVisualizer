@@ -3,8 +3,6 @@
 
 #include <QAbstractListModel>
 
-#include "sequencedetailsmodel.h"
-
 class Person
 {
 public:
@@ -25,7 +23,7 @@ public:
         OccurenceRole
     };
 
-    PersonListModel(SequenceDetailsModel &sm);
+    PersonListModel();
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
@@ -33,14 +31,14 @@ public:
 
     void addPerson(const QString &stringName, const QString &seqId);
 
-
 public slots:
     void plotDetails(int row);
 
+signals:
+    void personSelected(const QStringList &sequenceIdList);
+
 private:
     QList<Person> personList;
-    SequenceDetailsModel *sm; // TODO: Replace by signal/slot (emit/receive the seqId) ?
-
 };
 
 #endif // PERSONLISTMODEL_H

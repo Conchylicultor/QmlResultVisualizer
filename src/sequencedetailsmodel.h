@@ -2,7 +2,6 @@
 #define SEQUENCEDETAILSMODEL_H
 
 #include <QAbstractListModel>
-#include <QStringListModel>
 
 class SequenceDetails
 {
@@ -36,7 +35,8 @@ public:
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
     QHash<int, QByteArray> roleNames() const;
 
-    void setData(const QStringList &newData);
+public slots:
+    void plotDetails(const QStringList &newData);
 
 private:
     QList<SequenceDetails> sequenceList;

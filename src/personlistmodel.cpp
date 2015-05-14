@@ -5,8 +5,8 @@ Person::Person(const QString &name) : name(name), nbOccurrence(0)
 {
 }
 
-PersonListModel::PersonListModel(SequenceDetailsModel &sm) :
-    QAbstractListModel(0), sm(&sm)
+PersonListModel::PersonListModel() :
+    QAbstractListModel(0)
 {
 
 }
@@ -63,6 +63,5 @@ void PersonListModel::addPerson(const QString &stringName, const QString &seqId)
 }
 
 void PersonListModel::plotDetails(int row) {
-    sm->setData(personList.at(row).seqIdsList);
-    // emit ...(personList.at(row).seqIdsList)
+    emit personSelected(personList.at(row).seqIdsList);
 }
