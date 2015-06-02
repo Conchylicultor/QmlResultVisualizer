@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
     PersonListModel pm;
 
     // Read all results from the text file
-    QFile resultFile("/home/etienne/__A__/Dev/Reidentification/Data/Debug/network_save.net");
+    QFile resultFile("/home/etienne/__A__/Dev/Reidentification/Data/OutputReid/network_save.net");
     if(!resultFile.open(QIODevice::ReadOnly | QIODevice::Text))
     {
         qDebug() << "Error: Cannot open the network file";
