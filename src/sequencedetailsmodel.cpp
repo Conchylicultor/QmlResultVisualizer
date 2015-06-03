@@ -8,6 +8,7 @@
 using namespace std;
 using namespace cv;
 
+static const int nbSequenceImagesToPlot = 10;
 
 SequenceDetails::SequenceDetails(const QString &sequenceId)
 {
@@ -56,7 +57,7 @@ SequenceDetails::SequenceDetails(const QString &sequenceId)
         lines.append("/home/etienne/__A__/Dev/Reidentification/Data/Traces/" + textStream.readLine() + ".png");
     }
 
-    for(int i = 0 ; i < lines.size() ; i += 1 + lines.size()/5) // We add +1 in case of the list size is <5
+    for(int i = 0 ; i < lines.size() ; i += 1 + lines.size()/nbSequenceImagesToPlot) // We add +1 in case of the list size is <5
     {
         imgUrlList.append(lines.at(i));
     }
